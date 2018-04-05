@@ -1,6 +1,8 @@
 #CUHK-Internet-Autologin
 
 ##How To Use
+Requirements: `Python3`
+
 Install the dependencies from pip.
 ```
 pip install -r requirements.txt
