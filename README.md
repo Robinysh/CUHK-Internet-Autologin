@@ -3,6 +3,7 @@
 
 ## Requirements
 Python3 is suggested, but through minor editing this code can be ran on python2.
+
 Google Chrome has to be installed.
 It is suggested to download the corresponding version of chromedriver from [here](https://chromedriver.chromium.org/downloads)
 
