@@ -8,6 +8,15 @@ Install the dependencies from pip.
 ```
 pip install -r requirements.txt
 ```
+
+For Raspberry Pi, a chromedriver designed for corresponding ARM architecture is needed. <br>
+In Raspbian Buster, replace the chromedriver binary with:
+```
+sudo apt install chromium-chromedriver
+rm -f ./chromedriver
+ln -s $(realpath /usr/lib/chromium-browser/chromedriver)
+```
+
 ## How To Use
 Run the following command to start auto monitoring.
 ```
