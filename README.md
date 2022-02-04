@@ -41,7 +41,7 @@ python login.py
 ```
 
 ## Settings
-Edit your username and password inside `login.py`
+Edit your SID and password inside `login.py`
 
 Period for checking internet connection can be adjusted inside `monitor.py` at `SLEEP_TIME`, in terms of seconds. 
 
