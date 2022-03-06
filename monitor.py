@@ -10,8 +10,9 @@ import urllib.error
 import subprocess
 
 PROCNAME = 'chromedriver'
-SLEEP_TIME = 10
- 
+SUCC_SLEEP_TIME = 60 * 60 * 2 # 2 hours
+FAIL_SLEEP_TIME = 10
+
 def kill_chromedriver():
     for proc in psutil.process_iter():
         if proc.name == PROCNAME:
@@ -46,15 +47,18 @@ def start_wifi():
     print('# restarted internet connection')
  
 def main():
+    sleep_time = FAIL_SLEEP_TIME
     while True:
         if not is_connected_git_method():
             print('# network is down')
             start_wifi()
             kill_chromedriver()
+            sleep_time = FAIL_SLEEP_TIME
         else:
             print('# network is up')
-            pass
-        sleep(SLEEP_TIME)
+            sleep_time = SUCC_SLEEP_TIME
+        print('Sleeping for {duration}s.\n'.format(duration=sleep_time))
+        sleep(sleep_time)
  
 if __name__ == "__main__":
     main()
