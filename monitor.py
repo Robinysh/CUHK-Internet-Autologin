@@ -18,6 +18,8 @@ def kill_chromedriver():
             proc.kill()
 
 def is_connected_git_method():
+  # Note that you need to have a valid github key on your computer
+  # Even read-only deploy keys of one particular repo works
   try:
     result = subprocess.run(["ssh", "-T", "git@github.com", "-o ConnectTimeout=2"])
     print(result.returncode)

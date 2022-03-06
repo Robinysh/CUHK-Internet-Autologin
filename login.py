@@ -2,8 +2,8 @@ from splinter.browser import Browser
 from time import sleep
  
 URL = 'https://securelogin.wlan.cuhk.edu.hk/'
-ACCTNAME = ''
-PASSWORD = '' #remember to change it to your own Onepass password
+ACCTNAME = '' # remember to change it to your CUHK email used for logging in WiFi
+PASSWORD = '' # remember to change it to your own Onepass password
  
 def main():
     #br = Browser('chrome', executable_path='./chromedriver')
