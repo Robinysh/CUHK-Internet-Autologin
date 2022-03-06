@@ -7,6 +7,8 @@ import socket
 import urllib.request
 import urllib.error
 
+import subprocess
+
 PROCNAME = 'chromedriver'
 SLEEP_TIME = 10
  
@@ -14,6 +16,14 @@ def kill_chromedriver():
     for proc in psutil.process_iter():
         if proc.name == PROCNAME:
             proc.kill()
+
+def is_connected_git_method():
+  try:
+    result = subprocess.run(["ssh", "-T", "git@github.com", "-o ConnectTimeout=2"])
+    print(result.returncode)
+    return (result.returncode == 1)
+  except Exception as _:
+    return False
 
 def is_connected(host="8.8.8.8", port=53, timeout=3):
   """
@@ -35,7 +45,7 @@ def start_wifi():
  
 def main():
     while True:
-        if not is_connected():
+        if not is_connected_git_method():
             print('# network is down')
             start_wifi()
             kill_chromedriver()
