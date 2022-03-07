@@ -22,12 +22,18 @@ Check the Chrome version with:
 google-chrome --version
 ```
 
-For Raspberry Pi, a chromedriver designed for corresponding ARM architecture is needed. <br>
-In Raspbian Buster, replace the chromedriver binary with:
+For Raspberry Pi, a chromedriver designed for corresponding ARM architecture is needed.<br>
+In Raspbian Buster/Bullseye, replace the chromedriver binary in the cloned repo with:
 ```
+sudo apt update
+
+# You will get the latest driver in this step
 sudo apt install chromium-chromedriver
 rm -f ./chromedriver
 ln -s $(realpath /usr/lib/chromium-browser/chromedriver)
+
+# Update your chromium as the driver is locked to chromium version
+sudo apt upgrade chromium-browser
 ```
 
 ## How To Use

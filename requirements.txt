@@ -1,2 +1,3 @@
 splinter
 psutil
+selenium
